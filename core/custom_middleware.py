@@ -15,7 +15,7 @@ class AutoLoginMiddleware:
             if not request.user.is_authenticated:
                 try:
                     # Try to get the 'admin' user
-                    user = User.objects.get(username='pritesh')
+                    user = User.objects.get(username='admin')
                     request.user = user  # Set the user for the request
                 except User.DoesNotExist:
                     pass  # Handle the case if 'admin' user doesn't exist
