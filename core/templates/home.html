@@ -3,187 +3,185 @@
 {% load static %} 
 {% block maincontent %}
 
-<div class="p-5">
-  <div class="container mt-5">
-    <div class="row">
-      <!-- Left Column: Text Content -->
-      <div class="col-md-8 text-left">
-        <h3 class="text-white mt-3">{{ resumedata.name }}</h3>
-        <h4 class="text-white mt-3 font-weight-bold">Career Objective</h4>
-        <p class="text-white mt-3">{{ resumedata.career_objective|safe }}</p>
+<div class="md:px-10">
+
+    <!--Career Objective start-->
+    <div class="md:mt-5 flex flex-col md:flex-row px-3">
+      <div class="md:w-2/3 text-left order-2 md:order-1">
+        <h3 class="text-black font-bold text-2xl mt-5 underline italic">{{ resumedata.name }}</h3>
+        <h4 class="text-black mt-3 text-xl font-bold font-semibold">Career Objective</h4>
+        <p class="text-black mt-3 text-l font-bold">{{ resumedata.career_objective|safe }}</p>
       </div>
-      <!-- Right Column: Profile Image -->
+    
       {% if render_type == 'webpage' %}
-      <div class="col-md-4 text-center">
+      <div class="md:w-1/4 md:text-center order-1 md:order-2 relative">
         <img
           src="{% static 'images/pritesh.png' %}"
           alt="Profile Image"
-          class="profile-image mt-3"
+          class="profile-image mt-3 mx-auto md:mt-0 w-20 md:w-36 rounded-xl absolute top-0 right-10 md:relative md:static"
         />
       </div>
       {% endif %}
     </div>
-  </div>
-
-  <style>
-    .profile-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-  </style>
-
-  <div class="p-3 text-left text-white">
-    <hr class="border border-primary" />
-    <h4 class="text-white mt-3 font-weight-bold mt-5">
-      Contact Details And Social Profile
-    </h4>
-    <div class="row row-cols-2">
-      <div class="col mt-2">Email: {{ resumedata.email }}</div>
-      <div class="col mt-2">Phone: {{ resumedata.phone }}</div>
-      <div class="col mt-2">City: {{ resumedata.city }}</div>
-      <div class="col mt-2">Website: {{ resumedata.website }}</div>
-      <div class="col mt-2">LinkedIn: {{ resumedata.linkedin }}</div>
-      <div class="col mt-2">Skype: {{ resumedata.skype }}</div>
-      <div class="col mt-2">GitHub: {{ resumedata.github }}</div>
-      <div class="col mt-2">StackOverflow: {{ resumedata.stackoverflow }}</div>
-    </div>
-  </div>
-
-  <hr class="border border-primary" />
-
-  {% if resumedata %}
-  <div class="mt-5">
-    <h3 class="text-white">PROFESSIONAL EXPERIENCE</h3>
-    {% for experience in resumedata.experiences.all %}
-    <h4 class="text-white mt-4">{{ experience.title }}</h4>
-    <p class="text-white">{{ experience.description|safe }}</p>
-    {% endfor %}
-  </div>
-  {% else %}
-  <p>No resume data available.</p>
-  {% endif %}
-
-  <hr class="border border-primary" />
-
-  {% if resumedata %}
-  <div class="mt-5">
-    <h3 class="text-white">EDUCATION QUALIFICATION</h3>
-    {% for education in resumedata.educational.all %}
-    <h4 class="text-white mt-3">{{education.name_of_degree}}</h4>
-    <div class="row row-col-3">
-      <p class="text-white col">{{education.college_or_school_name}}</p>
-      <p class="col text-white">{{education.passing_years}}</p>
-      <p class="col text-white">{{education.percentage}}</p>
-            {% endfor %}
-          </div>
-          <p>No resume data available.</p>
-        {% endif %}
-
-          <hr class="border border-primary" />
-
-          {% if resumedata %}
-          <div>
-            <h3 class="text-white mt-4">SKILL SET</h3>
-            <div class="d-flex flex-wrap mt-3">
-              {% for skill in resumedata.skills.all %}
-                <div class="p-2 text-white">{{ skill.skills }}</div>
-              {% endfor %}
-            </div>
-          </div>
-        {% else %}
-          <p>No resume data available.</p>
-        {% endif %}
-        
-
-
-          <hr class="border border-primary mt-5" />
-
-          {% if resumedata %}
-          <div class="mt-5">
-            <h3 class="text-white">PROJECT DETAILS</h3>
-            {% for project in resumedata.projects.all %}
-              <h4 class="text-white mt-4">{{ project.project_title }}</h4>
-              
-              <p class="text-white border p-3" style="width: 100%;">{{ project.short_summary }}</p>
-              
-              <p class="text-white border p-3" style="width: 100%;">
-                {{ project.project_description }}
-              </p>
-              
-              <h4 class="text-white mt-4">Technologies and Tools Used:</h4>
-              
-              <p class="text-white border p-3" style="width: 100%;">
-                {{ project.technologies_and_tools_used }}
-              </p>
-              
-              <p class="text-white border p-3" style="width: 100%;">
-                {{ project.conclusion }}
-              </p>
-            {% endfor %}
-          </div>
-        {% else %}
-          <p>No resume data available.</p>
-        {% endif %}
-        
+    <hr class="border border-black mt-3" />
+    
+    
+    <!--Career Objective start-->
 
 
 
-          <hr class="border border-primary mt-5" />
 
-          {% if resumedata %}
-          <div class="mt-5">
-            <h3 class="text-white">SUMMARY</h3>
-            {% for Summary in resumedata.Summarys.all %}
-            <span class="text-white" style="margin-left: 30px">
-             {{ Summary.Sort_Summary|safe}}
-            </span>
-            {% endfor %}
-          </div>
-          {% else %}
-          <p>No resume data available.</p>
-        {% endif %}
-
-          <hr class="border border-primary mt-5" />
-
-          {% if resumedata %}
-          <div class="mt-5">
-            <h3 class="text-white">LANGUAGES</h3>
-            <div class="row row-cols-2">
-              {% for language in resumedata.languages.all %}
-              <div class="col mt-2 text-white">{{language.language_name}}</div>
-              <div class="col mt-2 text-white">{{language.value}}</div>
-              {% endfor %}
-            </div>
-          </div>
-          {% else %}
-          <p>No resume data available.</p>
-          {% endif %}
-
-          <hr class="border border-primary mt-5" />
-          {% if render_type == 'webpage' %}
-          <div class="text-center mt-5">
-            <a
-              href="{% url 'contact' %}"
-              class="btn btn-outline-warning my-3 mx-2 custom-btn"
-              >Hire Me</a
-            >
-            <a
-              href="{% url 'contact' %}"
-              class="btn btn-outline-info my-3 mx-2 custom-btn"
-              >Contact</a
-            >
-            <a
-              href="{% url 'generate_resume_pdf' %}"
-              class="btn btn-outline-success my-3 mx-2 custom-btn"
-              >Download Resume as PDF</a
-            >
-          </div>
-          {% endif %}
-        </div>
-        {% endblock maincontent %}
+  <!--Contact Details And Social Profile-->
+      <h4 class="text-black text-xl md:text-2xl mt-5 font-bold underline italic mt-3">
+        Contact Details And Social Profile
+      </h4>    
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-2 px-3">
+        <div class="mt-2 text-black font-bold">Email: {{ resumedata.email }}</div>
+        <div class="mt-2 text-black font-bold">Phone: {{ resumedata.phone }}</div>
+        <div class="mt-2 text-black font-bold">City: {{ resumedata.city }}</div>
+        <div class="mt-2 text-black font-bold">Website: {{ resumedata.website }}</div>
+        <div class="mt-2 text-black font-bold">LinkedIn: {{ resumedata.linkedin }}</div>
+        <div class="mt-2 text-black font-bold">Skype: {{ resumedata.skype }}</div>
+        <div class="mt-2 text-black font-bold">GitHub: {{ resumedata.github }}</div>
+        <div class="mt-2 text-black font-bold">StackOverflow: {{ resumedata.stackoverflow }}</div>
       </div>
+      
+    <hr class="border border-black mt-2" />
+    <!--Contact Details And Social Profile-->
+
+
+    <!--PROFESSIONAL EXPERIENCE-->
+      <div class="px-3">
+        {% if resumedata %}
+        <h3 class="text-black text-xl mt-5 font-bold underline italic mt-10">PROFESSIONAL EXPERIENCE</h3>
+        {% for experience in resumedata.experiences.all %}
+        <h4 class="text-black font-bold mt-4 text-xl">{{ experience.title }}</h4>
+        <p class="text-black font-bold">{{ experience.description|safe }}</p>
+        {% endfor %}
+      {% else %}
+      <p>No resume data available.</p>
+      {% endif %}
+      <hr class="border border-black mt-5" />
     </div>
-  </div>
+      <!--PROFESSIONAL EXPERIENCE-->
+
+
+
+
+      <!--EDUCATION QUALIFICATION-->
+      <div class="px-3">
+        {% if resumedata %}
+        <h3 class="text-black text-xl mt-5 font-bold underline italic mt-10">EDUCATION QUALIFICATION</h3>
+        {% for education in resumedata.educational.all %}
+        <div class="mt-3 text-white">
+          <h4 class="mt-3 text-black font-bold text-xl">{{ education.name_of_degree }}</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <p class="text-black font-bold">{{ education.college_or_school_name }}</p>
+            <p class="text-black font-bold">{{ education.passing_years }}</p>
+            <p class="text-black font-bold">{{ education.percentage }}</p>
+          </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p>No resume data available.</p>
+      {% endif %}
+      <hr class="border border-black mt-5" />
+      </div>      
+      <!--EDUCATION QUALIFICATION-->
+
+
+
+      <!--SKILL SET-->
+      {% if resumedata %}
+      <h3 class="text-black text-2xl mt-5 font-bold underline italic">SKILL SET</h3>
+      <div class="flex flex-wrap mt-3 gap-2">
+        {% for skill in resumedata.skills.all %}
+          <div class="p-2 text-black font-bold bg-gray-200 rounded-md md:mt-5">{{ skill.skills }}</div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No resume data available.</p>
+    {% endif %}
+    <hr class="border border-black mt-10" />
+    <!--SKILL SET-->
+
+
+  
+    <!--PROJECT DETAILS-->
+      {% if resumedata %}
+        <h3 class="text-black text-2xl mt-5 font-bold underline italic">PROJECT DETAILS</h3>
+        {% for project in resumedata.projects.all %}
+          <h4 class="text-black mt-4 text-xl font-bold">{{ project.project_title }}</h4>
+          
+          <p class="text-black border border-black p-3 font-bold">{{ project.short_summary }}</p>
+          
+          <p class="text-black border border-black p-3 font-bold">
+            {{ project.project_description }}
+          </p>
+          
+          <h4 class="text-black mt-4 text-xl font-bold">Technologies and Tools Used:</h4>
+          
+          <p class="text-black border border-black p-3 font-bold">
+            {{ project.technologies_and_tools_used }}
+          </p>
+          
+          <p class="text-black border border-black p-3 font-bold">
+            {{ project.conclusion }}
+          </p>
+        {% endfor %}
+    {% else %}
+      <p>No resume data available.</p>
+    {% endif %}
+    <hr class="border border-black mt-5" />
+    <!--PROJECT DETAILS-->
+
+
+
+
+
+    <!--SUMMARY-->
+      {% if resumedata %}
+        <h3 class="text-black text-2xl mt-5 font-bold underline italic mb-3">SUMMARY</h3>
+        {% for Summary in resumedata.Summarys.all %}
+        <span class="text-black font-bold mt-5">
+          {{ Summary.Sort_Summary|safe}}
+        </span>
+        {% endfor %}
+      {% else %}
+        <p>No resume data available.</p>
+      {% endif %}
+      <hr class="border border-black mt-5" />
+    <!--SUMMARY-->
+
+
+
+
+    <!--LANGUAGES-->
+    {% if resumedata %}
+    <h3 class="text-black text-2xl mt-5 font-bold underline italic">LANGUAGES</h3>
+    <div class="grid grid-cols-2 gap-4 mt-5">
+      {% for language in resumedata.languages.all %}
+        <div class="p-2 text-black bg-gray-200 rounded-md">{{ language.language_name }}</div>
+        <div class="p-2 text-black bg-gray-200 rounded-md">{{ language.value }}</div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p>No resume data available.</p>
+    {% endif %}
+      <hr class="border border-black mt-5" />
+    <!--LANGUAGES-->
+
+
+
+    <!--Bottons-->
+    {% if render_type == 'webpage' %}
+    <div class="flex flex-row items-center justify-center my-7">
+      <a href="{% url 'contact' %}" class="md:text-xl text-sm font-bold text-blue-600 mx-5">Hire Me</a>
+      <a href="{% url 'contact' %}" class="md:text-xl text-sm font-bold text-blue-600 mx-5">Contact</a>
+      <a href="{% url 'generate_resume_pdf' %}" class="md:text-xl text-sm font-bold text-blue-600 mx-5">Download Resume as PDF</a>
+    </div>
+    {% endif %}    
+    <!--Bottons-->
+
 </div>
+{% endblock maincontent %}
