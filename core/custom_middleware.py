@@ -10,7 +10,7 @@ class AutoLoginMiddleware:
         if request.path.startswith(reverse('admin:index')):
             if not request.user.is_authenticated:
                 try:
-                    user = User.objects.get(username='pritesh')
+                    user = User.objects.get(username='Pritesh')
                     request.user = user
                 except User.DoesNotExist:
                     pass
