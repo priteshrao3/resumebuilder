@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Resume, ProfessionalExperience, EducationalQualification, SkillSet, ProjectDetail, Language, Summary
 
+
 class ProfessionalExperienceInline(admin.TabularInline):
     model = ProfessionalExperience
     extra = 1
@@ -26,6 +27,7 @@ class SummaryInline(admin.TabularInline):
     extra = 1
 
 class ResumeAdmin(admin.ModelAdmin):
+    icon_name = 'assignment'
     inlines = [
         ProfessionalExperienceInline,
         EducationalQualificationInline,

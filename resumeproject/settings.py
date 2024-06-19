@@ -1,5 +1,6 @@
 
 from pathlib import Path
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,9 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'material',
+    'material.admin',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -118,3 +121,30 @@ MEDIA_ROOT = 'resumeproject/media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Material Admin Settings And Icons Start
+MATERIAL_ADMIN_SITE = {
+    'HEADER':  _('Welcome To Prwebtechno'),
+    'TITLE':  _('prwebtechno'), 
+    'FAVICON':  '/images/feviconicon.png', 
+    'MAIN_BG_COLOR':  '#334924',
+    'MAIN_HOVER_COLOR':  '#2B4424', 
+    'PROFILE_PICTURE':  '/images/feviconicon.png', 
+    # 'PROFILE_BG':  'img/welcomeadmin.jpg',
+    'LOGIN_LOGO':  '/images/feviconicon.png', 
+    # 'LOGOUT_BG':  '/images/logo.webp', 
+    'SHOW_THEMES':  True, 
+    'TRAY_REVERSE': True, 
+    'NAVBAR_REVERSE': True, 
+    
+    'SHOW_COUNTS': True, 
+      'APP_ICONS': { 
+        'sites': 'send',
+        'core': 'assignment',
+    },
+    'MODEL_ICONS': {  
+        'site': 'contact_mail',
+        'user': 'person_pin',
+    },
+}
+# Material Admin Settings And Icons End
