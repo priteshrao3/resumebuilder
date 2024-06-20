@@ -22,7 +22,7 @@ class Resume(models.Model):
 # PROFESSIONAL EXPERIENCE
 class ProfessionalExperience(models.Model):
     resume = models.ForeignKey(Resume, on_delete=models.CASCADE, related_name='experiences')
-    title = models.CharField(max_length=500, null=True, blank=True)
+    title = RichTextField(null=True, blank=True)
     description = RichTextField(null=True, blank=True)
 
     def __str__(self):
@@ -53,7 +53,7 @@ class SkillSet(models.Model):
 # PROJECT DETAILS
 class ProjectDetail(models.Model):
     resume = models.ForeignKey(Resume, on_delete=models.CASCADE, related_name='projects')
-    project_title = models.CharField(max_length=500, null=True, blank=True)
+    project_title = RichTextField(null=True, blank=True)
     short_summary = RichTextField(null=True, blank=True)
     project_description = RichTextField(null=True, blank=True)
     technologies_and_tools_used = RichTextField(null=True, blank=True)

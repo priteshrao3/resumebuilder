@@ -55,7 +55,7 @@
         {% if resumedata %}
         <h3 class="text-black text-xl mt-5 font-bold underline italic mt-10">PROFESSIONAL EXPERIENCE</h3>
         {% for experience in resumedata.experiences.all %}
-        <h4 class="text-black font-bold mt-4 text-xl">{{ experience.title }}</h4>
+        <h4 class="text-black font-bold mt-4 text-xl">{{ experience.title|safe }}</h4>
         <p class="text-black font-bold">{{ experience.description|safe }}</p>
         {% endfor %}
       {% else %}
@@ -226,7 +226,7 @@
       {% if resumedata %}
         <h3 class="text-black text-2xl mt-5 font-bold underline italic">PROJECT DETAILS</h3>
         {% for project in resumedata.projects.all %}
-          <h4 class="text-black mt-4 text-xl font-bold">{{ project.project_title }}</h4>
+          <h4 class="text-black mt-4 text-xl font-bold">{{ project.project_title|safe }}</h4>
           
           <p class="text-black p-3 font-bold">{{ project.short_summary|safe }}</p>
           
