@@ -1,115 +1,213 @@
 {% extends "base.html" %}
 {% load static %}
+{% include "navbar.html" %}
 {% block maincontent %}
 
-{% include "navbar.html" %}
-<div class="container">
-  <h1 class="text-warning mb-5 border-bottom mt-5">SKILLS</h1>
 
-  <div class="row text-white">
-    <div class="col-sm-5">
-      <h3 class="mt-5">HTML/CSS</h3>
-      <div class="progress">
+
+{% if render_type == 'webpage' %}
+
+
+{% endif %}
+<div class="container mx-auto mt-5 p-10">
+  <h1 class="mb-5 border-b text-2xl font-bold p-2">SKILLS</h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-white">
+    <div>
+      <h3 class="mt-5 p-2 text-black font-bold">HTML</h3>
+      <div class="h-4 bg-gray-200 rounded-full">
         <div
-          class="progress-bar bg-success"
+          class="bg-green-500 pl-3 rounded-full"
           role="progressbar"
           style="width: 100%"
           aria-valuenow="100"
           aria-valuemin="0"
           aria-valuemax="100"
         >
-          100%%
+          100%
         </div>
       </div>
     </div>
 
-    <div class="col-sm-5 offset-sm-2">
-      <h3 class="mt-5">Django</h3>
-      <div class="progress">
+    <div>
+      <h3 class="mt-5 p-2 text-black font-bold">CSS</h3>
+      <div class="h-4 bg-gray-200 rounded-full">
         <div
-          class="progress-bar bg-info progress-bar-striped progress-bar-animated"
-          role="progressbar"
-          style="width: 70%"
-          aria-valuenow="70"
-          aria-valuemin="0"
-          aria-valuemax="100"
-        >
-          70%%
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="row text-white">
-    <div class="col-sm-5">
-      <h3 class="mt-5">HTML/CSS</h3>
-      <div class="progress">
-        <div
-          class="progress-bar bg-success"
+          class="bg-green-500 pl-3 rounded-full"
           role="progressbar"
           style="width: 100%"
           aria-valuenow="100"
           aria-valuemin="0"
           aria-valuemax="100"
         >
-          100%%
+          100%
         </div>
       </div>
     </div>
 
-    <div class="col-sm-5 offset-sm-2">
-      <h3 class="mt-5">Django</h3>
-      <div class="progress">
+    <div>
+      <h3 class="mt-5 p-2 text-black font-bold">JavaScript</h3>
+      <div class="h-4 bg-gray-200 rounded-full">
         <div
-          class="progress-bar bg-info progress-bar-striped progress-bar-animated"
+          class="bg-yellow-500 pl-3 rounded-full"
+          role="progressbar"
+          style="width: 85%"
+          aria-valuenow="85"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          85%
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="mt-5 p-2 text-black font-bold">Python</h3>
+      <div class="h-4 bg-gray-200 rounded-full">
+        <div
+          class="bg-red-500 pl-3 rounded-full"
+          role="progressbar"
+          style="width: 90%"
+          aria-valuenow="90"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          90%
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="mt-5 p-2 text-black font-bold">Django</h3>
+      <div class="h-4 bg-gray-200 rounded-full">
+        <div
+          class="bg-blue-500 pl-3 rounded-full animate-progress"
           role="progressbar"
           style="width: 70%"
           aria-valuenow="70"
           aria-valuemin="0"
           aria-valuemax="100"
         >
-          70%%
+          70%
         </div>
       </div>
     </div>
-  </div>
 
-
-  <div class="row text-white">
-    <div class="col-sm-5">
-      <h3 class="mt-5">HTML/CSS</h3>
-      <div class="progress">
+    <div>
+      <h3 class="mt-5 p-2 text-black font-bold">REST API</h3>
+      <div class="h-4 bg-gray-200 rounded-full">
         <div
-          class="progress-bar bg-success"
+          class="bg-blue-500 pl-3 rounded-full"
           role="progressbar"
-          style="width: 100%"
-          aria-valuenow="100"
+          style="width: 75%"
+          aria-valuenow="75"
           aria-valuemin="0"
           aria-valuemax="100"
         >
-          100%%
+          75%
         </div>
       </div>
     </div>
 
-    <div class="col-sm-5 offset-sm-2">
-      <h3 class="mt-5">Django</h3>
-      <div class="progress">
+    <div>
+      <h3 class="mt-5 p-2 text-black font-bold">Next.js</h3>
+      <div class="h-4 bg-gray-200 rounded-full">
         <div
-          class="progress-bar bg-info progress-bar-striped progress-bar-animated"
+          class="bg-blue-500 pl-3 rounded-full"
+          role="progressbar"
+          style="width: 65%"
+          aria-valuenow="65"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          65%
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="mt-5 p-2 text-black font-bold">GitHub</h3>
+      <div class="h-4 bg-gray-200 rounded-full">
+        <div
+          class="bg-gray-700 pl-3 rounded-full"
+          role="progressbar"
+          style="width: 80%"
+          aria-valuenow="80"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          80%
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="mt-5 p-2 text-black font-bold">MySQL</h3>
+      <div class="h-4 bg-gray-200 rounded-full">
+        <div
+          class="bg-indigo-500 pl-3 rounded-full"
+          role="progressbar"
+          style="width: 75%"
+          aria-valuenow="75"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          75%
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="mt-5 p-2 text-black font-bold">Linux</h3>
+      <div class="h-4 bg-gray-200 rounded-full">
+        <div
+          class="bg-red-600 pl-3 rounded-full"
           role="progressbar"
           style="width: 70%"
           aria-valuenow="70"
           aria-valuemin="0"
           aria-valuemax="100"
         >
-          70%%
+          70%
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="mt-5 p-2 text-black font-bold">Windows</h3>
+      <div class="h-4 bg-gray-200 rounded-full">
+        <div
+          class="bg-blue-600 pl-3 rounded-full"
+          role="progressbar"
+          style="width: 85%"
+          aria-valuenow="85"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          85%
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="mt-5 p-2 text-black font-bold">Flutter</h3>
+      <div class="h-4 bg-gray-200 rounded-full">
+        <div
+          class="bg-blue-300 pl-3 rounded-full"
+          role="progressbar"
+          style="width: 60%"
+          aria-valuenow="60"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          60%
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
 
 {% endblock maincontent %}

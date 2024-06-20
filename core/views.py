@@ -3,6 +3,10 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 from weasyprint import HTML
 from .models import Resume
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib import messages
+from django.http import JsonResponse
 
 def HomePage(request):
     try:
@@ -39,15 +43,37 @@ def generate_resume_pdf(request):
 
 
 
-def Services(request):
-    return render(request, 'services.html')
-
-
-
 def Educations(request):
-    return render(request, 'educations.html')
+    context = {
+        'render_type': 'webpage',
+    }
+    return render(request, 'educations.html', context)
 
 
+# Contact Us Pages View
+def ContactPage(request):
+    context = {'render_type': 'webpage'}
+    
+    if request.method == 'POST':
+        firstname = request.POST.get('firstname')
+        lastname = request.POST.get('lastname')
+        mobile = request.POST.get('phone')
+        email = request.POST.get('email')
+        subject = request.POST.get('value1')
+        message = request.POST.get('message')
+        
+        email_content = f"First Name: {firstname} \n\nLast Name: {lastname} \n\nEmail: {email} \n\nPhone No.: {mobile} \n\n{message}"
+        
+        try:
+            send_mail(
+                subject,
+                email_content,
+                settings.EMAIL_HOST_USER,
+                ['priteshrao3@gmail.com'],
+                fail_silently=False,
+            )
+            return JsonResponse({'message': 'Message sent successfully!'})
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
 
-def Contact(request):
-    return render(request, 'contact.html')
+    return render(request, 'contact.html', context)

@@ -3,7 +3,7 @@ from ckeditor.fields import RichTextField
 
 class Resume(models.Model):
     name = models.CharField(max_length=500, null=True, blank=True)
-    career_objective = models.CharField(max_length=50000, blank=True, null=True)
+    career_objective = RichTextField(blank=True, null=True)
     email = models.EmailField(max_length=254, null=True, blank=True, unique=True)
     phone = models.CharField(max_length=15, null=True, blank=True)
     city = models.CharField(max_length=500, null=True, blank=True)
@@ -23,7 +23,7 @@ class Resume(models.Model):
 class ProfessionalExperience(models.Model):
     resume = models.ForeignKey(Resume, on_delete=models.CASCADE, related_name='experiences')
     title = models.CharField(max_length=500, null=True, blank=True)
-    description = models.CharField(max_length=50000, null=True, blank=True)
+    description = RichTextField(null=True, blank=True)
 
     def __str__(self):
         return self.title or 'Untitled Experience'
@@ -54,10 +54,10 @@ class SkillSet(models.Model):
 class ProjectDetail(models.Model):
     resume = models.ForeignKey(Resume, on_delete=models.CASCADE, related_name='projects')
     project_title = models.CharField(max_length=500, null=True, blank=True)
-    short_summary = models.CharField(max_length=50000, null=True, blank=True)
-    project_description = models.CharField(max_length=50000, null=True, blank=True)
-    technologies_and_tools_used = models.CharField(max_length=50000, null=True, blank=True)
-    conclusion = models.CharField(max_length=50000, null=True, blank=True)
+    short_summary = RichTextField(null=True, blank=True)
+    project_description = RichTextField(null=True, blank=True)
+    technologies_and_tools_used = RichTextField(null=True, blank=True)
+    conclusion = RichTextField(null=True, blank=True)
 
     def __str__(self):
         return self.project_title or 'Unnamed Project'

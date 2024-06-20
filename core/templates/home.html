@@ -228,21 +228,22 @@
         {% for project in resumedata.projects.all %}
           <h4 class="text-black mt-4 text-xl font-bold">{{ project.project_title }}</h4>
           
-          <p class="text-black border border-black p-3 font-bold">{{ project.short_summary }}</p>
+          <p class="text-black p-3 font-bold">{{ project.short_summary|safe }}</p>
           
-          <p class="text-black border border-black p-3 font-bold">
-            {{ project.project_description }}
+          <p class="text-black p-3 font-bold">
+            {{ project.project_description|safe }}
           </p>
           
           <h4 class="text-black mt-4 text-xl font-bold">Technologies and Tools Used:</h4>
           
-          <p class="text-black border border-black p-3 font-bold">
-            {{ project.technologies_and_tools_used }}
+          <p class="text-black p-3 font-bold">
+            {{ project.technologies_and_tools_used|safe }}
           </p>
           
-          <p class="text-black border border-black p-3 font-bold">
-            {{ project.conclusion }}
+          <p class="text-black p-3 font-bold">
+            {{ project.conclusion|safe }}
           </p>
+          <hr class="border border-black mt-5" />
         {% endfor %}
     {% else %}
       <p>No resume data available.</p>
