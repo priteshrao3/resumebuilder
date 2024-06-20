@@ -205,7 +205,7 @@
       </style>
 
       
-      <div class="skill-set-section">
+      <div class="skill-set-section px-2">
         {% if resumedata %}
           <h3 class="text-black text-2xl mt-5 font-bold underline italic">SKILL SET</h3>
           <div class="flex flex-wrap mt-3 gap-2">
@@ -224,7 +224,7 @@
   
     <!--PROJECT DETAILS-->
       {% if resumedata %}
-        <h3 class="text-black text-2xl mt-5 font-bold underline italic">PROJECT DETAILS</h3>
+        <h3 class="text-black text-2xl mt-5 font-bold underline italic px-2">PROJECT DETAILS</h3>
         {% for project in resumedata.projects.all %}
           <h4 class="text-black mt-4 text-xl font-bold">{{ project.project_title|safe }}</h4>
           
